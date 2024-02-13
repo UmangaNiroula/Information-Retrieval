@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heading {
+            margin-bottom: 5px;
+            text-align: center;
+            letter-spacing: .01em;
+            font-size: calc(2.8em + 2.6vw);
+        }
+
+        .subHeading {
+            text-align: center;
+            color: rgb(105, 105, 105);
+            margin: auto;
+            width: 50%;
+            padding-bottom: 20px;
+        }
+
+        .search {
+            margin: auto;
+            width: 50%;
+        }
+
+        .searchContain input {
+            width: 78%;
+            padding: 20px;
+        }
+
+        .searchContain button {
+            padding: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .result {
+            margin: auto;
+            width: 50%;
+        }
+
+    </style>
+</head>
+<body>
+<h1 class="heading">SEARCH PUBLICATION</h1>
+<p class="subHeading">Developed By: Umanga Niroula - 14825284 (Msc3-s1)</p>
+<p class="subHeading">STW7071CEM Information Retrieval</p>
+<form action="/search" method="post" class="search" id="searchForm">
+    <div class="searchContain">
+        <p>Search For Publications:</p>
+        <input type="text" id="searchInput" name="query" placeholder="Enter your query">
+        <button type="submit">Search</button>
+    </div>
+</form>
+
+<!-- Display search results -->
+{% if results %}
+<div class="result">
+    <h2>Search Results ({{ results|length }} results found)</h2> <!-- Display number of search results -->
+    <p>Website created by: John Doe</p> <!-- Add the name of the creator of the website -->
+    <ul>
+        {% for result in results %}
+        <li>
+            <p><strong>Title:</strong> {{ result['title'] }}</p>
+            <p><strong>Authors:</strong> {{ result['authors'] }}</p>
+            <p><strong>Year:</strong> {{ result['year'] }}</p>
+            <p><strong>Publication URL:</strong> {% if result['publication_url'] != 'N/A' %}<a href="{{ result['publication_url'] }}" target="_blank">{{ result['publication_url'] }}</a>{% else %}N/A{% endif %}</p>
+            <p><strong>Author Profile URL:</strong> {% if result['author_profile_url'] != 'N/A' %}<a href="{{ result['author_profile_url'] }}" target="_blank">{{ result['author_profile_url'] }}</a>{% else %}N/A{% endif %}</p>
+        </li>
+        {% if not loop.last %}
+        <hr>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const searchForm = document.getElementById('searchForm');
+
+        searchForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Your search logic goes here
+
+            // Clear the input field
+            searchInput.value = '';
+        });
+    });
+</script>
+</body>
+</html>
