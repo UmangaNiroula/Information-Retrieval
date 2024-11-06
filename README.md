@@ -1,4 +1,15 @@
+# Elevator Pitch
 This repository contains the development of two integrated systems: a vertical search engine and a document clustering system. The search engine is designed to crawl and retrieve publication data exclusively from the Research Centre for Health and Life Sciences (RCHL) at Coventry University, using polite crawling techniques to respect site rules and avoid overloading servers. The document clustering system classifies user-inputted documents into categories (Sport, Health, and Business) using K-means clustering. Both systems emphasize efficient information retrieval, user-friendly interfaces, and automated processes to ensure up-to-date content and seamless categorization.
+
+# Vertical Search Engine and Document Clustering System for Research Publications
+
+1.	Introduction
+
+The prime objective of this report is to put forward the development and assessment of two different systems: a vertical search engine design to crawl and retrieve publication data form the Research Centre for Health and Life Sciences (RCHL) of Coventry University, and a document clustering system that classifies the clusters based on user input through the help of machine learning algorithms like K-means clustering. Further, both the system is designed to meet certain criteria in the field of information retrieval. 
+
+The first task, i.e., to create a vertical search engine quite similar to Google Scholar is developed, just how the Google Scholar finds publication done form various authors, so does the vertical search engine created for task one. The only difference is that it utilizes crawling mechanism to exclusively focus on publications made in the Coventry University’s RCHL. The system crawls various data on publications such as the title, authors name(s), publication year, URL to the publication link, and author’s profile URL. Furthermore, this system uses a polite crawling approach where the robots.txt page is in consideration while respecting the limitation it possesses and making sure the crawling time period is also elongated such that no disturbance in the system. 
+
+In the second task, a document clustering system is created to classify different documents formats into namely three categories Sport, Health, and Business. The clustering system utilize a standard clustering method which is the K-means Clustering. First, a dataset is formed through gathering various sports, health, and business-related news, then with the help of K-means clustering each of the data gathered is classified into one of three categories, this is training the system, then a GUI is developed which further classifies users input into one of three categories.
 
 ### Coventry University's Centre for Health and Life Sciences Website.
 
